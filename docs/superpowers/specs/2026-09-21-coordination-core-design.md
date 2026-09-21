@@ -19,10 +19,21 @@ here without changing it.
 **Phase order (whole project):**
 1. Coordination core (this spec): auth, roster, trips, calendar, manual
    item proposals, confirmations, cost breakdown, ICS export.
-2. Flights search (Skyscanner) — replaces manual entry for `type: flight`
-   items with a real search-and-propose flow.
-3. Hostels search (Hostelworld) — same pattern for `type: hostel`.
-4. Excursions search (Viator/GetYourGuide) — same pattern for `type: excursion`.
+2. Smart date suggestions — suggest open date ranges for a new trip
+   based on invitees' existing confirmed trips. Needs only phase 1
+   data (trips + trip_participants); no external API.
+3. Flights search (Skyscanner) — replaces manual entry for `type: flight`
+   items with a real search-and-propose flow. Search results sortable
+   by price, cheapest option highlighted.
+4. Hostels search (Hostelworld) — same pattern for `type: hostel`,
+   same price sort/highlight requirement.
+5. Excursions search (Viator/GetYourGuide) — same pattern for
+   `type: excursion`, same price sort/highlight requirement.
+6. Cheapest-combo trip optimizer — once flight/hostel/excursion price
+   data all exist (phases 3–5), suggest the cheapest overall
+   combination for a trip. Complex enough (group flying from
+   different cities, per-person vs. per-trip cost) to need its own
+   brainstorm when this phase starts.
 
 ## Goals (Phase 1)
 
